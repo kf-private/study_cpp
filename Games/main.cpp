@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-#include "Player.h"
-#include "Computer.h"
-#include "GameSet.h"
+#include "./rpc_game/Player.h"
+#include "./rpc_game/Computer.h"
+#include "./rpc_game/GameSet.h"
 
 enum Choices{
     ROCK,
