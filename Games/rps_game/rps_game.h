@@ -1,5 +1,5 @@
-#ifndef RPC_GAME_H_
-#define RPC_GAME_H_
+#ifndef RPS_GAME_H_
+#define RPS_GAME_H_
 
 enum Choices{
     NOT_YET,

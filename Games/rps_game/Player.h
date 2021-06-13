@@ -1,7 +1,7 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
-#include "rpc_game.h"
+#include "rps_game.h"
 
 class Player{
 private:

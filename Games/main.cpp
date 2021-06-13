@@ -7,4 +7,5 @@
 int main(){
     GameSet game;
     game.GameField();
+    return 0;
 }

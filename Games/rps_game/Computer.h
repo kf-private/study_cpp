@@ -1,7 +1,7 @@
 #ifndef _COMPUTER_H_
 #define _COMPUTER_H_
 
-#include "rpc_game.h"
+#include "rps_game.h"
 
 class Computer{
 private:
