@@ -3,13 +3,26 @@
 #include <random>
 
 Computer::Computer(){
-    choice = -1;
+    computer_choice_ = NOT_YET;
 }
 
-void Computer::set_choice(){
+void Computer::SetChoice(){
     std::cout << "Computer is making a choice";
     std::random_device rnd;
-    choice = rnd() % 3;
+    int computer_choice = rnd() % 3;
+    switch(computer_choice){
+            case 1:
+                computer_choice_ =  ROCK;
+                break;
+            case 2:
+                computer_choice_ = PAPER;
+                break;
+            case 3:
+                computer_choice_ = SCISSORS;
+                break;
+            default:
+                break;
+        }
     for(int i = 0; i < 40000; i++){
         if((i % 10000) == 0){
             std::cout << " .";
@@ -18,6 +31,5 @@ void Computer::set_choice(){
     std::cout << std::endl;
 }
 
-int Computer::get_choice(){
-    return choice;
-}
+Choices Computer::GetChoice(){
+    return computer_choice_;

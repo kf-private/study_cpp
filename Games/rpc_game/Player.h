@@ -1,13 +1,15 @@
-#ifndef _PLAYER_H_
-#define _PLAYER_H_
+#ifndef PLAYER_H_
+#define PLAYER_H_
+
+#include "rpc_game.h"
 
 class Player{
 private:
-    int choice;
+    Choices player_choice_;
 public:
     Player();
-    void make_choice();
-    int get_choice();
+    void MakeChoice();
+    Choices GetChoice();
 };
 
 #endif
