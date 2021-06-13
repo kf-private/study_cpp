@@ -5,10 +5,10 @@
 
 class Computer{
 private:
-    Choices computer_choice_;
+    int computer_choice_;
 public:
     Computer();
-    Choices GetChoice();
+    int GetChoice();
     void SetChoice();
 };
 

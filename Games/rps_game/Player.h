@@ -5,11 +5,11 @@
 
 class Player{
 private:
-    Choices player_choice_;
+    int player_choice_;
 public:
     Player();
     void MakeChoice();
-    Choices GetChoice();
+    int GetChoice();
 };
 
 #endif

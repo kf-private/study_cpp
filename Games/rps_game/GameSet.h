@@ -4,26 +4,24 @@
 #include "Player.h"
 #include "Computer.h"
 
-enum WhoWins{
-    NO_MATCH,
-    PLAYER_WIN,
-    COMPUTER_WIN,
-    DRAW
-};
+#define NO_MATCH     0
+#define PLAYER_WIN   1
+#define COMPUTER_WIN 2
+#define DRAW         3
 
 class GameSet{
 private:
     Player player_instance_;
     Computer computer_instance_;
-    WhoWins result_;
+    int result_;
 public:
     GameSet();
     ~GameSet();
     void GameField();
     void SetResult();
     void PrintResult();
-    Choices ReferPlayerChoice();
-    Choices ReferComputerChoice();
+    int ReferPlayerChoice();
+    int ReferComputerChoice();
 };
 
 #endif

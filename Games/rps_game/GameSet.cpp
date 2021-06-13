@@ -55,10 +55,10 @@ void GameSet::GameField(){
     }
 }
 
-Choices GameSet::ReferPlayerChoice(){
+int GameSet::ReferPlayerChoice(){
     return player_instance_.GetChoice();
 }
 
-Choices GameSet::ReferComputerChoice(){
+int GameSet::ReferComputerChoice(){
     return computer_instance_.GetChoice();
 }
