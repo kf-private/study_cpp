@@ -4,7 +4,7 @@
 #include "Computer.h"
 
 GameSet::GameSet(){
-    WhoWins = -1;
+    result_= NO_MATCH;
     std::cout << "Let's play the rock-paper-scissors!" << std::endl;
 }
 
@@ -12,43 +12,53 @@ GameSet::~GameSet(){
     std::cout << "Thank you for playing with us!" << std::endl;
 }
 
-int GameSet::JudgeWhoWins(Player player, Computer computer){
-    if(player.get_choice() == computer.get_choice()){
-        return 0;
-        std::cout << "Draw!" << std::endl;
+void GameSet::SetResult(){
+    if(ReferPlayerChoice() == ReferComputerChoice()){
+        result_ = DRAW;
     }
-    else if(((player.get_choice() + 1) % 3) == computer.get_choice()){
-        return -1;
+    else if(((ReferPlayerChoice() + 1) % 3) == ReferComputerChoice()){
+        result_ = COMPUTER_WIN;
     }
     else{
-        return 1;
+        result_ = PLAYER_WIN;
     }
 }
 
-void GameSet::PrintResult(int WhoWins){
-    switch(WhoWins){
-        case 0:
+void GameSet::PrintResult(){
+    switch(result_){
+        case DRAW:
             std::cout << "Draw!" << std::endl;
             break;
         
-        case 1:
+        case PLAYER_WIN:
             std::cout << "Congrats! You win!!!" << std::endl;
             break;
 
-        case -1:
+        case COMPUTER_WIN:
             std::cout << "You lose..." << std::endl;
             break;
     }
 }
 
-void GameSet::GameField(Player& player, Computer& computer){
+void GameSet::GameField(){
     while(1){
-        player.make_choice();
-        computer.set_choice();
-        WhoWins = JudgeWhoWins(player, computer);
-        PrintResult(WhoWins);
-        if(WhoWins != 0){
+        player_instance_.MakeChoice();
+        computer_instance_.SetChoice();
+        SetResult();
+        PrintResult();
+        if(result_ != DRAW){
             break;
         }
+        else{
+            std::cout << "Make another choice!" << std::endl;
+        }
     }
+}
+
+Choices GameSet::ReferPlayerChoice(){
+    return player_instance_.GetChoice();
+}
+
+Choices GameSet::ReferComputerChoice(){
+    return computer_instance_.GetChoice();
 }

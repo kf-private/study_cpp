@@ -4,15 +4,26 @@
 #include "Player.h"
 #include "Computer.h"
 
+enum WhoWins{
+    NO_MATCH,
+    PLAYER_WIN,
+    COMPUTER_WIN,
+    DRAW
+};
+
 class GameSet{
 private:
-    int WhoWins;
+    Player player_instance_;
+    Computer computer_instance_;
+    WhoWins result_;
 public:
     GameSet();
     ~GameSet();
-    void GameField(Player&, Computer&);
-    int JudgeWhoWins(Player, Computer);
-    void PrintResult(int);
+    void GameField();
+    void SetResult();
+    void PrintResult();
+    Choices ReferPlayerChoice();
+    Choices ReferComputerChoice();
 };
 
 #endif
